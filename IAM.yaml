@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: IAM Resources
+Resources:
+  DavBotPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      PolicyDocument: 
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action: 
+            - secretsmanager:GetResourcePolicy
+            - secretsmanager:GetSecretValue
+            - secretsmanager:DescribeSecret
+            - secretsmanager:ListSecretVersionIds
+            - secretsmanager:ListSecrets
+            Resource:
+            - "*"
+  DavBotRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Principal:
+                AWS:
+                  - arn:aws:iam::289410895629:user/DavBot
+              Action:
+                - 'sts:AssumeRole'
+      Description: Awesome DavBot Role
+      RoleName: DavBotRole
+      ManagedPolicyArns: 
+        - !Ref DavBotPolicy
+
