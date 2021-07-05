@@ -5,3 +5,9 @@
 
 ### Ec2
 `aws cloudformation create-stack --stack-name DavEc2Stack --template-body file://ELB.yaml --capabilities CAPABILITY_NAMED_IAM`
+
+
+### Stack 
+`aws s3 cp VPC.yaml s3://dav-cloudformation/VPC.yaml`
+`aws cloudformation create-stack --stack-name DavEksStack --template-body file://stack.yaml --capabilities CAPABILITY_NAMED_IAM`
+

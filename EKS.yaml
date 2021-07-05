@@ -1,0 +1,11 @@
+Type: AWS::EKS::Cluster
+Properties: 
+  EncryptionConfig: 
+    - EncryptionConfig
+  KubernetesNetworkConfig: 
+    KubernetesNetworkConfig
+  Name: DavEKS
+  ResourcesVpcConfig: 
+    ResourcesVpcConfig
+  RoleArn: String
+  Version: String
